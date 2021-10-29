@@ -1,0 +1,38 @@
+---
+title: "Welcome to Dairy Data Science"
+description: |
+  Welcome to our new blog, Dairy Data Science. We hope you enjoy 
+  reading what we have to say!
+author:
+  - name: Padraig Lucey  
+    url: https://example.com/norajones
+    affiliation: Spacely Sprockets
+    affiliation_url: https://example.com/spacelysprokets
+date: 10-29-2021
+output:
+  distill::distill_article:
+    self_contained: false
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+
+# Learn more about creating blogs with Distill at:
+# https://rstudio.github.io/distill/blog.html
+
+```
+Hi there this is an R markup test  
+
+_this should be in bold_  
+
+``` this should look like code```  
+
+- this should be a list  
+
+- dsfdks 
+
+--- 
+
+# That was a section break and this is a header
+
+
