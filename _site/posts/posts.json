@@ -1,0 +1,36 @@
+[
+  {
+    "path": "posts/welcome/",
+    "title": "Welcome to Dairy Data Science",
+    "description": "Welcome to our new blog, Dairy Data Science. We hope you enjoy \nreading what we have to say!",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2021-10-29",
+    "categories": [],
+    "contents": "\r\nHi there this is an R markup test\r\nthis should be in bold\r\nthis should look like code\r\nthis should be a list\r\ndsfdks\r\nThat was a section break and this is a header\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-10-29T13:26:11-07:00",
+    "input_file": "welcome.knit.md"
+  },
+  {
+    "path": "posts/2021-10-29-fresh-cow-monitoring-database-from-scratch-using-ms-access/",
+    "title": "Fresh Cow Monitoring Database from scratch using MS Access",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Nora Jones",
+        "url": "https://example.com/norajones"
+      }
+    ],
+    "date": "2021-10-29",
+    "categories": [],
+    "contents": "\r\nDistill is a publication format for scientific and technical writing, native to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill.\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2021-10-29T13:29:45-07:00",
+    "input_file": "fresh-cow-monitoring-database-from-scratch-using-ms-access.knit.md"
+  }
+]

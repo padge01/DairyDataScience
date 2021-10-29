@@ -1,0 +1,20 @@
+{
+  "articles": [
+    {
+      "path": "about.html",
+      "title": "About this blog",
+      "description": "Some additional details about the blog",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-10-29T13:21:44-07:00"
+    },
+    {
+      "path": "index.html",
+      "title": "Dairy Data Science",
+      "author": [],
+      "contents": "\r\n\r\n\r\n\r\n",
+      "last_modified": "2021-10-29T13:21:44-07:00"
+    }
+  ],
+  "collections": ["posts/posts.json"]
+}
