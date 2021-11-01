@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="http://search.yahoo.com/mrss/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:dc="http://purl.org/dc/elements/1.1/" version="2.0">
+  <channel>
+    <title>Dairy Data Science</title>
+    <link>https://dairydatascience.com</link>
+    <atom:link href="https://dairydatascience.com/index.xml" rel="self" type="application/rss+xml"/>
+    <description>A blog focused on data science within the field of dairy cow production medicine.
+Featuring database management and R programming guides for exploring and applying 
+these techniques to commerical dairy production. 
+</description>
+    <generator>Distill</generator>
+    <lastBuildDate>Fri, 29 Oct 2021 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Building a Fresh Cow Monitoring Database from scratch using MS Access</title>
+      <dc:creator>Padraig Lucey</dc:creator>
+      <link>https://dairydatascience.com/posts/2021-10-29-fresh-cow-monitoring-database-from-scratch-using-ms-access</link>
+      <description>A case report I compiled to outline the rationale and workflow of a MS Access database I built as a novel Fresh Cow recording, monitoring and regular reporting system for a commercial dairy client.</description>
+      <guid>https://dairydatascience.com/posts/2021-10-29-fresh-cow-monitoring-database-from-scratch-using-ms-access</guid>
+      <pubDate>Fri, 29 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+    <item>
+      <title>Welcome to Dairy Data Science</title>
+      <dc:creator>Padraig Lucey</dc:creator>
+      <link>https://dairydatascience.com/posts/welcome</link>
+      <description>Welcome to the site.</description>
+      <guid>https://dairydatascience.com/posts/welcome</guid>
+      <pubDate>Fri, 29 Oct 2021 00:00:00 +0000</pubDate>
+    </item>
+  </channel>
+</rss>
