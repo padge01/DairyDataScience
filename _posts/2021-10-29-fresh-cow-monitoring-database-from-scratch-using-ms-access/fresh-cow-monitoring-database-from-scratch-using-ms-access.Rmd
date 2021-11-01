@@ -2,6 +2,7 @@
 title: "Building a Fresh Cow Monitoring Database from scratch using MS Access"
 description: |
   A case report I compiled to outline the rationale and workflow of a MS Access database built as a novel Fresh Cow recording, monitoring and regular reporting system for a commercial dairy client.
+draft: true
 author:
   - name: Padraig Lucey
     url: https://github.com/padge01

@@ -1,11 +1,14 @@
 name: "DairyDataScience"
 title: "Dairy Data Science"
 description: |
-  Dairy Data Science
+  A blog focused on data science within the field of dairy cow production medicine.
+  Featuring database management and R programming guides for exploring and applying 
+  these techniques to commerical dairy production. 
+base_url: https://dairydatascience.com
 output_dir: "_site"
 navbar:
   right:
-    - text: "Home"
+    - text: "Posts"
       href: index.html
     - text: "About"
       href: about.html
