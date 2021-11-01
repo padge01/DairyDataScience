@@ -1,13 +1,11 @@
 ---
 title: "Welcome to Dairy Data Science"
 description: |
-  Welcome to our new blog, Dairy Data Science. We hope you enjoy 
-  reading what we have to say!
+  Welcome to the site! 
 author:
   - name: Padraig Lucey  
-    url: https://example.com/norajones
-    affiliation: Spacely Sprockets
-    affiliation_url: https://example.com/spacelysprokets
+    affiliation: University of California, Davis
+    affiliation_url: https://www.vmtrc.ucdavis.edu/padraig-lucey
 date: 10-29-2021
 output:
   distill::distill_article:
@@ -21,18 +19,9 @@ knitr::opts_chunk$set(echo = FALSE)
 # https://rstudio.github.io/distill/blog.html
 
 ```
-Hi there this is an R markup test  
+# Applying data science to Dairy Production 
 
-_this should be in bold_  
+This is a website dedicated to exploring data science in the field of dairy cow production medicine. It will feature short explanations of different data visualization or analysis techniques, using commercial dairy data. 
 
-``` this should look like code```  
-
-- this should be a list  
-
-- dsfdks 
-
---- 
-
-# That was a section break and this is a header
 
 
