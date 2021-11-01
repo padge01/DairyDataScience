@@ -8,6 +8,8 @@ links:
     url: "https://github.com/padge01"
   - label: Email
     url: "mailto:plucey@ucdavis.edu"
+  - label: UC Davis
+    url: "https://www.vmtrc.ucdavis.edu/padraig-lucey"
 output:
   postcards::trestles
 ---

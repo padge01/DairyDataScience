@@ -1,9 +1,10 @@
 ---
 title: "Welcome to Dairy Data Science"
 description: |
-  Welcome to the site! 
+  Welcome to the site. 
 author:
-  - name: Padraig Lucey  
+  - name: Padraig Lucey 
+    url:  https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/
     affiliation: University of California, Davis
     affiliation_url: https://www.vmtrc.ucdavis.edu/padraig-lucey
 date: 10-29-2021
@@ -21,7 +22,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 # Applying data science to Dairy Production 
 
-This is a website dedicated to exploring data science in the field of dairy cow production medicine. It will feature short explanations of different data visualization or analysis techniques, using commercial dairy data. 
+This is a website exploring data science in the field of dairy cow production medicine. It will feature short explanations of data visualization and analysis techniques using commercial dairy data. 
 
 
 
