@@ -1,0 +1,12 @@
+---
+title: "Dairy Data Science"
+description: |
+  Some additional details about the blog
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+# About me
+Welcome to the blog. My name is Padraig Lucey and I'm a current PhD student in Animal Biology. 
