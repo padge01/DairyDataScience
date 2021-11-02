@@ -20,7 +20,8 @@ knitr::opts_chunk$set(echo = FALSE)
 # https://rstudio.github.io/distill/blog.html
 
 ```
-# Applying data science to Dairy Production 
+# Applying data science to. 
+Dairy Production 
 
 This is a website exploring data science in the field of dairy cow production medicine. It will feature short explanations of data visualization and analysis techniques using commercial dairy data. 
 
