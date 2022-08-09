@@ -1,5 +1,22 @@
 [
   {
+    "path": "posts/2022-08-09-testing-new-post/",
+    "title": "testing new posdfsdt",
+    "description": "A short description of the post.",
+    "author": [
+      {
+        "name": "Padraig Lucey",
+        "url": "https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/"
+      }
+    ],
+    "date": "2022-08-09",
+    "categories": [],
+    "contents": "\r\nDistill is a publication format for scientific and technical writing,\r\nnative to the web.\r\nLearn more about using Distill at https://rstudio.github.io/distill. writing stuff here to\r\ntest this feature\r\n\r\n\r\n\r\n",
+    "preview": {},
+    "last_modified": "2022-08-09T09:30:59-07:00",
+    "input_file": {}
+  },
+  {
     "path": "posts/welcome/",
     "title": "Welcome to Dairy Data Science",
     "description": "Welcome to the site.",

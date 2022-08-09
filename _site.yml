@@ -12,6 +12,10 @@ navbar:
       href: index.html
     - text: "About"
       href: about.html
+    - text: "Guide"
+      menu:
+        - text: "Visualize cow pens"
+          href: Visualizing-Cow-Pens.html
 output: distill::distill_article
 collections:
   posts:
