@@ -19,6 +19,15 @@ these techniques to commerical dairy production.
       <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
     </item>
     <item>
+      <title>Overlaid plots in ggplot2</title>
+      <dc:creator>Padraig Lucey</dc:creator>
+      <link>https://dairydatascience.com/posts/2022-08-11-overlaid-plots-in-ggplot2</link>
+      <description>How to reshape your data and plot the density of repeated measures for easy data visualization</description>
+      <guid>https://dairydatascience.com/posts/2022-08-11-overlaid-plots-in-ggplot2</guid>
+      <pubDate>Tue, 09 Aug 2022 00:00:00 +0000</pubDate>
+      <media:content url="https://dairydatascience.com/posts/2022-08-11-overlaid-plots-in-ggplot2/overlaid-plots-in-ggplot2_files/figure-html5/unnamed-chunk-4-1.png" medium="image" type="image/png" width="1248" height="768"/>
+    </item>
+    <item>
       <title>Welcome to Dairy Data Science</title>
       <dc:creator>Padraig Lucey</dc:creator>
       <link>https://dairydatascience.com/posts/welcome</link>
