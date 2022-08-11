@@ -2,6 +2,8 @@
 title: "Padraig Lucey"
 image: "padraig2.jpg"
 links:
+  - label: Medium
+    url: "https://medium.com/@padraiglucey"
   - label: LinkedIn
     url: "https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/"
   - label: GitHub
