@@ -1,9 +1,8 @@
 ---
-title: "Padraig Lucey"
+title: "Pádraig Lucey"
 image: "padraig2.jpg"
 links:
-  - label: Medium
-    url: "https://medium.com/@padraiglucey"
+  
   - label: LinkedIn
     url: "https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/"
   - label: GitHub
@@ -15,23 +14,30 @@ links:
 output:
   postcards::trestles
 ---
- 
-## Bio 
-Padraig is a board certified Veterinarian in preventive medicine (ACVPM) and a graduate student in Animal Biology at the University of California, Davis.  
-His research thesis is focused on mathematical modeling and dairy cow nutrition. This work emphasizes the distribution of dry matter intake across cow populations, and creating predictive models of feed requirements to increase the precision of cow group diet formulation.
-  
-  
-## Education
-Bachelor of Veterinary Medicine __DVM__ | University College Dublin | 2016    
-    
-Masters of Preventive Medicine __MPVM__ | University of California, Davis | 2019  
-  
-Ph.D in Animal Biology | University of California, Davis | Candidate  
-  
-  
-  
-## Experience 
 
-Resident Veterinarian in Dairy Production Medicine | University of California, Davis | 2017 - 2020  
-  
-Livestock Veterinarian | Parklands Veterinary Group | 2016 - 2017
+## Bio
+
+Pádraig is a board certified Veterinarian in preventive medicine (ACVPM) and a graduate student in Animal Biology at the University of California, Davis.\
+His research thesis is focused on mathematical modeling and dairy cow nutrition. This work emphasizes the distribution of dry matter intake across cow populations, and creating predictive models of feed requirements to increase the precision of cow group diet formulation.
+
+## Education
+
+Bachelor of Veterinary Medicine **DVM** \| University College Dublin \| 2016
+
+Masters of Preventive Medicine **MPVM** \| University of California, Davis \| 2019
+
+Ph.D in Animal Biology \| University of California, Davis \| Candidate
+
+## Experience
+
+Resident Veterinarian in Dairy Production Medicine \| University of California, Davis \| 2017 - 2020
+
+Livestock Veterinarian \| Parklands Veterinary Group \| 2016 - 2017
+
+------------------------------------------------------------------------
+
+### Consider following me on Medium
+
+[![](images/Medium-Logo-Black-CMYK@1x.png){width="246"}](https://medium.com/@padraiglucey)
+
+## 
