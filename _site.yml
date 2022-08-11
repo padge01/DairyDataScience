@@ -23,3 +23,10 @@ collections:
       shortname: Dairy-Data-Science
       hidden: false
     share: [twitter, linkedin]
+    
+cookie_consent:
+  style: simple
+  type: express
+  palette: light
+  lang: en
+  cookies_policy: url
