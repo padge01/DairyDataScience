@@ -8,8 +8,9 @@ author:
 date: 2022-08-22
 draft: true
 output:
-  distill::distill_article:
-    self_contained: false
+  html_document:
+    toc: true
+    toc_float: true
 ---
 
 

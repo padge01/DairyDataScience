@@ -2045,6 +2045,18 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
   <script src="site_libs/webcomponents-2.0.0/webcomponents.js"></script>
   <script src="site_libs/distill-2.2.21/template.v2.js"></script>
   <!--radix_placeholder_site_in_header-->
+  <script type="text/javascript" src="https://www.cookieconsent.com/releases/3.1.0/cookie-consent.js"></script>
+  <script type="text/javascript">
+  document.addEventListener('DOMContentLoaded', function () {
+  cookieconsent.run({
+  'notice_banner_type':'simple',
+  'consent_type': 'express',
+  'palette': 'light',
+  'language': 'en',
+  'website_name': 'DairyDataScience',
+  'cookies_policy_url': 'url',
+  'change_preferences_selector':'#CookiePreferences'
+  });});</script>
   <!--/radix_placeholder_site_in_header-->
 
 
@@ -2077,6 +2089,9 @@ Guide
 </button>
 <div class="nav-dropdown-content">
 <a href="Visualizing-Cow-Pens.html">Visualize cow pens</a>
+</div>
+<div class="nav-dropdown-content">
+<a href="anova-comparison-of-data-sets.html">Anova comparison of data-sets</a>
 </div>
 </div>
 <a href="javascript:void(0);" class="nav-toggle">&#9776;</a>
@@ -2262,16 +2277,6 @@ function init_posts_list() {
 </div>
 </div>
 <!--/radix_placeholder_article_listing-->
-
-
-
-
-
-
-
-
-
-
 
 <div class="d-title">
 <h1>Dairy Data Science</h1>
