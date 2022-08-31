@@ -16,6 +16,8 @@ navbar:
       menu:
         - text: "Visualize cow pens"
           href: Visualizing-Cow-Pens.html
+        - text: "Create tabsets with a for loop in R markdown"
+          href: generate-tabsets-in-a-for-loop-with-r-markdown.html
 output: distill::distill_article
 collections:
   posts:
