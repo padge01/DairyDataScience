@@ -6,6 +6,7 @@ author:
   - name: Padraig Lucey
     url: https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/
 date: 2022-09-19
+preview: images/NNscreen.png
 output:
   distill::distill_article:
     self_contained: false
@@ -19,6 +20,6 @@ This is the slideset I presented of my PhD work on a model building process to p
 
 I gave this presentation at the [MODNUT](https://www.modnut2022.com) (Modelling Nutrient Digestion and Utilization in Farm Animals) conference in Alghero, Sardinia on the 19th of September 2022.
 
-This work focused on the model building process of a machine learning neural network that will predict a distribution type and its parameters after training it to a database of simulated cow pens and group level statistics of each pen. 
+This work focused on the model building process of a machine learning neural network that will predict a distribution type and its parameters after training to a database of simulated cow pens and group level statistics of each pen. 
 
 
