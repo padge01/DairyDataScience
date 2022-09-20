@@ -9,7 +9,15 @@ Featuring database management and R programming guides for exploring and applyin
 these techniques to commerical dairy production. 
 </description>
     <generator>Distill</generator>
-    <lastBuildDate>Tue, 09 Aug 2022 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 19 Sep 2022 00:00:00 +0000</lastBuildDate>
+    <item>
+      <title>Predicting dairy pen dry matter intake distribution using machine learning</title>
+      <dc:creator>Padraig Lucey</dc:creator>
+      <link>https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation</link>
+      <description>MODNUT 2022 presentation, Sardini, Italy.</description>
+      <guid>https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation</guid>
+      <pubDate>Mon, 19 Sep 2022 00:00:00 +0000</pubDate>
+    </item>
     <item>
       <title>Overlaid plots in ggplot2</title>
       <dc:creator>Padraig Lucey</dc:creator>
