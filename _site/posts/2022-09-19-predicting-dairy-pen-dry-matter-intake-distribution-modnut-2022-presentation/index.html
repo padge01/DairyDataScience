@@ -20,19 +20,19 @@
 
 <style type="text/css">code{white-space: pre;}</style>
 <style type="text/css" data-origin="pandoc">
-code.sourceCode > span { display: inline-block; line-height: 1.25; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-code.sourceCode > span:empty { height: 1.2em; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
 .sourceCode { overflow: visible; }
-code.sourceCode { white-space: pre; position: relative; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
 div.sourceCode { margin: 1em 0; }
 pre.sourceCode { margin: 0; }
 @media screen {
 div.sourceCode { overflow: auto; }
 }
 @media print {
-code.sourceCode { white-space: pre-wrap; }
-code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
 }
 pre.numberSource code
   { counter-reset: source-line 0; }
@@ -50,16 +50,17 @@ pre.numberSource code > span > a:first-child::before
   }
 pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
 div.sourceCode
-  {   }
+  { color: #00769e; background-color: #f1f3f5; }
 @media screen {
-code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
+code span { color: #00769e; } /* Normal */
 code span.al { color: #ad0000; } /* Alert */
 code span.an { color: #5e5e5e; } /* Annotation */
-code span.at { } /* Attribute */
+code span.at { color: #657422; } /* Attribute */
 code span.bn { color: #ad0000; } /* BaseN */
 code span.bu { } /* BuiltIn */
-code span.cf { color: #007ba5; } /* ControlFlow */
+code span.cf { color: #00769e; } /* ControlFlow */
 code span.ch { color: #20794d; } /* Char */
 code span.cn { color: #8f5902; } /* Constant */
 code span.co { color: #5e5e5e; } /* Comment */
@@ -73,9 +74,9 @@ code span.fl { color: #ad0000; } /* Float */
 code span.fu { color: #4758ab; } /* Function */
 code span.im { } /* Import */
 code span.in { color: #5e5e5e; } /* Information */
-code span.kw { color: #007ba5; } /* Keyword */
+code span.kw { color: #00769e; } /* Keyword */
 code span.op { color: #5e5e5e; } /* Operator */
-code span.ot { color: #007ba5; } /* Other */
+code span.ot { color: #00769e; } /* Other */
 code span.pp { color: #ad0000; } /* Preprocessor */
 code span.sc { color: #5e5e5e; } /* SpecialChar */
 code span.ss { color: #20794d; } /* SpecialString */
@@ -87,48 +88,47 @@ code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
 
 
   <!--radix_placeholder_meta_tags-->
-<title>Dairy Data Science: Welcome to Dairy Data Science</title>
+<title>Dairy Data Science: Predicting dairy pen dry matter intake distribution using machine learning</title>
 
-<meta property="description" itemprop="description" content="Welcome to the site."/>
+<meta property="description" itemprop="description" content="MODNUT 2022 presentation, Sardini, Italy."/>
 
-<link rel="canonical" href="https://dairydatascience.com/posts/welcome/"/>
+<link rel="canonical" href="https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/"/>
 
 <!--  https://schema.org/Article -->
-<meta property="article:published" itemprop="datePublished" content="2021-10-29"/>
-<meta property="article:created" itemprop="dateCreated" content="2021-10-29"/>
+<meta property="article:published" itemprop="datePublished" content="2022-09-19"/>
+<meta property="article:created" itemprop="dateCreated" content="2022-09-19"/>
 <meta name="article:author" content="Padraig Lucey"/>
 
 <!--  https://developers.facebook.com/docs/sharing/webmasters#markup -->
-<meta property="og:title" content="Dairy Data Science: Welcome to Dairy Data Science"/>
+<meta property="og:title" content="Dairy Data Science: Predicting dairy pen dry matter intake distribution using machine learning"/>
 <meta property="og:type" content="article"/>
-<meta property="og:description" content="Welcome to the site."/>
-<meta property="og:url" content="https://dairydatascience.com/posts/welcome/"/>
+<meta property="og:description" content="MODNUT 2022 presentation, Sardini, Italy."/>
+<meta property="og:url" content="https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/"/>
 <meta property="og:locale" content="en_US"/>
 <meta property="og:site_name" content="Dairy Data Science"/>
 
 <!--  https://dev.twitter.com/cards/types/summary -->
 <meta property="twitter:card" content="summary"/>
-<meta property="twitter:title" content="Dairy Data Science: Welcome to Dairy Data Science"/>
-<meta property="twitter:description" content="Welcome to the site."/>
-<meta property="twitter:url" content="https://dairydatascience.com/posts/welcome/"/>
+<meta property="twitter:title" content="Dairy Data Science: Predicting dairy pen dry matter intake distribution using machine learning"/>
+<meta property="twitter:description" content="MODNUT 2022 presentation, Sardini, Italy."/>
+<meta property="twitter:url" content="https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/"/>
 
 <!--  https://scholar.google.com/intl/en/scholar/inclusion.html#indexing -->
-<meta name="citation_title" content="Dairy Data Science: Welcome to Dairy Data Science"/>
-<meta name="citation_fulltext_html_url" content="https://dairydatascience.com/posts/welcome/"/>
-<meta name="citation_online_date" content="2021/10/29"/>
-<meta name="citation_publication_date" content="2021/10/29"/>
+<meta name="citation_title" content="Dairy Data Science: Predicting dairy pen dry matter intake distribution using machine learning"/>
+<meta name="citation_fulltext_html_url" content="https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/"/>
+<meta name="citation_online_date" content="2022/09/19"/>
+<meta name="citation_publication_date" content="2022/09/19"/>
 <meta name="citation_author" content="Padraig Lucey"/>
-<meta name="citation_author_institution" content="University of California, Davis"/>
 <!--/radix_placeholder_meta_tags-->
   <!--radix_placeholder_rmarkdown_metadata-->
 
 <script type="text/json" id="radix-rmarkdown-metadata">
-{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Welcome to Dairy Data Science"]},{"type":"character","attributes":{},"value":["Welcome to the site."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url","affiliation","affiliation_url"]}},"value":[{"type":"character","attributes":{},"value":["Padraig Lucey"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/"]},{"type":"character","attributes":{},"value":["University of California, Davis"]},{"type":"character","attributes":{},"value":["https://www.vmtrc.ucdavis.edu/padraig-lucey"]}]}]},{"type":"character","attributes":{},"value":["10-29-2021"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://dairydatascience.com/posts/welcome/"]},{"type":"character","attributes":{},"value":["https://dairydatascience.com/posts/welcome/"]}]}
+{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["title","description","author","date","output","citation_url","canonical_url"]}},"value":[{"type":"character","attributes":{},"value":["Predicting dairy pen dry matter intake distribution using machine learning"]},{"type":"character","attributes":{},"value":["MODNUT 2022 presentation, Sardini, Italy."]},{"type":"list","attributes":{},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["name","url"]}},"value":[{"type":"character","attributes":{},"value":["Padraig Lucey"]},{"type":"character","attributes":{},"value":["https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/"]}]}]},{"type":"character","attributes":{},"value":["2022-09-19"]},{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["distill::distill_article"]}},"value":[{"type":"list","attributes":{"names":{"type":"character","attributes":{},"value":["self_contained"]}},"value":[{"type":"logical","attributes":{},"value":[false]}]}]},{"type":"character","attributes":{},"value":["https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/"]},{"type":"character","attributes":{},"value":["https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/"]}]}
 </script>
 <!--/radix_placeholder_rmarkdown_metadata-->
   
   <script type="text/json" id="radix-resource-manifest">
-  {"type":"character","attributes":{},"value":["welcome_files/anchor-4.2.2/anchor.min.js","welcome_files/bowser-1.9.3/bowser.min.js","welcome_files/distill-2.2.21/template.v2.js","welcome_files/jquery-3.6.0/jquery-3.6.0.js","welcome_files/jquery-3.6.0/jquery-3.6.0.min.js","welcome_files/jquery-3.6.0/jquery-3.6.0.min.map","welcome_files/popper-2.6.0/popper.min.js","welcome_files/tippy-6.2.7/tippy-bundle.umd.min.js","welcome_files/tippy-6.2.7/tippy-light-border.css","welcome_files/tippy-6.2.7/tippy.css","welcome_files/tippy-6.2.7/tippy.umd.min.js","welcome_files/webcomponents-2.0.0/webcomponents.js"]}
+  {"type":"character","attributes":{},"value":["predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/anchor-4.2.2/anchor.min.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/bowser-1.9.3/bowser.min.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/distill-2.2.21/template.v2.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/header-attrs-2.16/header-attrs.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/jquery-3.6.0/jquery-3.6.0.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/jquery-3.6.0/jquery-3.6.0.min.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/jquery-3.6.0/jquery-3.6.0.min.map","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/popper-2.6.0/popper.min.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/tippy-6.2.7/tippy-bundle.umd.min.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/tippy-6.2.7/tippy-light-border.css","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/tippy-6.2.7/tippy.css","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/tippy-6.2.7/tippy.umd.min.js","predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation_files/webcomponents-2.0.0/webcomponents.js","presentation.html"]}
   </script>
   <!--radix_placeholder_navigation_in_header-->
 <meta name="distill:offset" content="../.."/>
@@ -2091,6 +2091,7 @@ document.addEventListener('DOMContentLoaded', function() {
 </script>
 
 <!--/radix_placeholder_distill-->
+  <script src="../../site_libs/header-attrs-2.16/header-attrs.js"></script>
   <script src="../../site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
   <script src="../../site_libs/popper-2.6.0/popper.min.js"></script>
   <link href="../../site_libs/tippy-6.2.7/tippy.css" rel="stylesheet" />
@@ -2123,7 +2124,7 @@ cookieconsent.run({
 <!--radix_placeholder_front_matter-->
 
 <script id="distill-front-matter" type="text/json">
-{"title":"Welcome to Dairy Data Science","description":"Welcome to the site.","authors":[{"author":"Padraig Lucey","authorURL":"https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/","affiliation":"University of California, Davis","affiliationURL":"https://www.vmtrc.ucdavis.edu/padraig-lucey","orcidID":""}],"publishedDate":"2021-10-29T00:00:00.000+02:00","citationText":"Lucey, 2021"}
+{"title":"Predicting dairy pen dry matter intake distribution using machine learning","description":"MODNUT 2022 presentation, Sardini, Italy.","authors":[{"author":"Padraig Lucey","authorURL":"https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/","affiliation":"&nbsp;","affiliationURL":"#","orcidID":""}],"publishedDate":"2022-09-19T00:00:00.000+02:00","citationText":"Lucey, 2022"}
 </script>
 
 <!--/radix_placeholder_front_matter-->
@@ -2157,21 +2158,37 @@ Guide
 <!--/radix_placeholder_site_before_body-->
 
 <div class="d-title">
-<h1>Welcome to Dairy Data Science</h1>
+<h1>Predicting dairy pen dry matter intake distribution using machine learning</h1>
 <!--radix_placeholder_categories-->
 <!--/radix_placeholder_categories-->
-<p><p>Welcome to the site.</p></p>
+<p><p>MODNUT 2022 presentation, Sardini, Italy.</p></p>
 </div>
 
 <div class="d-byline">
-  Padraig Lucey <a href="https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/" class="uri">https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/</a> (University of California, Davis)<a href="https://www.vmtrc.ucdavis.edu/padraig-lucey" class="uri">https://www.vmtrc.ucdavis.edu/padraig-lucey</a>
+  Padraig Lucey <a href="https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/" class="uri">https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/</a> 
   
-<br/>10-29-2021
+<br/>2022-09-19
 </div>
 
 <div class="d-article">
-<h1 id="applying-data-science-to-dairy-production">Applying data science to Dairy Production</h1>
-<p>This is a website exploring data science in the field of dairy cow production medicine. It will feature short explanations of data visualization and analysis techniques using commercial dairy data.</p>
+<div class="layout-chunk" data-layout="l-body">
+<!DOCTYPE html>
+<html>
+<head>
+<title>Page Title</title>
+</head>
+<body>
+
+    <iframe src="https://ucdavis365-my.sharepoint.com/personal/plucey_ucdavis_edu/_layouts/15/Doc.aspx?sourcedoc={4122992f-97fd-48f5-bc40-66371fc3d7d6}&amp;action=embedview&amp;wdAr=1.7777777777777777" width="476px" height="288px" frameborder="0">This is an embedded <a target="_blank" href="https://office.com">Microsoft Office</a> presentation, powered by <a target="_blank" href="https://office.com/webapps">Office</a>.</iframe>
+
+
+
+</body>
+</html>
+</div>
+<p>This is the slideset I presented of my PhD work on a model building process to predict the distribution shape and parameters of dry matter intake for dairy cow pens.</p>
+<p>I gave this presentation at the <a href="https://www.modnut2022.com">MODNUT</a> (Modelling Nutrient Digestion and Utilization in Farm Animals) conference in Alghero, Sardinia on the 19th of September 2022.</p>
+<p>This work focused on the model building process of a machine learning neural network that will predict a distribution type and its parameters after training it to a database of simulated cow pens and group level statistics of each pen.</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode r distill-force-highlighting-css"><code class="sourceCode r"></code></pre></div>
 <!--radix_placeholder_article_footer-->
 <div class="article-footer">
@@ -2179,14 +2196,14 @@ Guide
     <span class="disqus-comments">
       <i class="fas fa-comments"></i>
       &nbsp;
-      <span class="disqus-comment-count" data-disqus-identifier="posts/welcome/">Comment on this article</span>
+      <span class="disqus-comment-count" data-disqus-identifier="posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/">Comment on this article</span>
     </span>
     <span class="article-sharing">
       Share: &nbsp;
-      <a href="https://twitter.com/share?text=Welcome%20to%20Dairy%20Data%20Science&amp;url=https%3A%2F%2Fdairydatascience.com%2Fposts%2Fwelcome%2F" aria-label="share on twitter">
+      <a href="https://twitter.com/share?text=Predicting%20dairy%20pen%20dry%20matter%20intake%20distribution%20using%20machine%20learning&amp;url=https%3A%2F%2Fdairydatascience.com%2Fposts%2F2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation%2F" aria-label="share on twitter">
         <i class="fab fa-twitter" aria-hidden="true"></i>
       </a>
-      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdairydatascience.com%2Fposts%2Fwelcome%2F&amp;title=Welcome%20to%20Dairy%20Data%20Science" aria-label="share on linkedin">
+      <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fdairydatascience.com%2Fposts%2F2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation%2F&amp;title=Predicting%20dairy%20pen%20dry%20matter%20intake%20distribution%20using%20machine%20learning" aria-label="share on linkedin">
         <i class="fab fa-linkedin" aria-hidden="true"></i>
       </a>
     </span>
@@ -2195,8 +2212,8 @@ Guide
   <div id="disqus_thread"></div>
   <script type="text/plain" cookie-consent="functionality">
 var disqus_config = function () {
-  this.page.url = 'https://dairydatascience.com/posts/welcome/';
-  this.page.identifier = 'posts/welcome/';
+  this.page.url = 'https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/';
+  this.page.identifier = 'posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/';
 };
 (function() {
   var d = document, s = d.createElement('script');
@@ -2219,13 +2236,13 @@ var disqus_config = function () {
 <div class="appendix-bottom">
   <h3 id="citation">Citation</h3>
   <p>For attribution, please cite this work as</p>
-  <pre class="citation-appendix short">Lucey (2021, Oct. 29). Dairy Data Science: Welcome to Dairy Data Science. Retrieved from https://dairydatascience.com/posts/welcome/</pre>
+  <pre class="citation-appendix short">Lucey (2022, Sept. 19). Dairy Data Science: Predicting dairy pen dry matter intake distribution using machine learning. Retrieved from https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/</pre>
   <p>BibTeX citation</p>
-  <pre class="citation-appendix long">@misc{lucey2021welcome,
+  <pre class="citation-appendix long">@misc{lucey2022predicting,
   author = {Lucey, Padraig},
-  title = {Dairy Data Science: Welcome to Dairy Data Science},
-  url = {https://dairydatascience.com/posts/welcome/},
-  year = {2021}
+  title = {Dairy Data Science: Predicting dairy pen dry matter intake distribution using machine learning},
+  url = {https://dairydatascience.com/posts/2022-09-19-predicting-dairy-pen-dry-matter-intake-distribution-modnut-2022-presentation/},
+  year = {2022}
 }</pre>
 </div>
 <!--/radix_placeholder_appendices-->
