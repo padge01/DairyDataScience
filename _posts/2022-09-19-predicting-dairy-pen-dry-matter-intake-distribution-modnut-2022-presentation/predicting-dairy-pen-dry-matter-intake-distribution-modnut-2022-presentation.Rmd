@@ -6,7 +6,7 @@ author:
   - name: Padraig Lucey
     url: https://www.linkedin.com/in/p%C3%A1draig-lucey-687506124/
 date: 2022-09-19
-preview: images/NNscreen.png
+preview: NNscreen.png
 output:
   distill::distill_article:
     self_contained: false
