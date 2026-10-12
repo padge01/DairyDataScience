@@ -27,6 +27,7 @@ export default [
     journal: "Animals",
     year: 2023,
     doi: "10.3390/ani13132169",
+    figure: "/img/papers/animals-2023.jpg",
   },
   {
     title: "Effects of mannan-oligosaccharide and Bacillus subtilis supplementation to preweaning Holstein dairy heifers on body weight gain, diarrhea, and shedding of fecal pathogens",
