@@ -5,6 +5,10 @@
   "observability": {
     "enabled": true
   },
+  "routes": [
+    { "pattern": "dairydatascience.com", "custom_domain": true },
+    { "pattern": "www.dairydatascience.com", "custom_domain": true }
+  ],
   "assets": {
     "directory": "_site"
   }
