@@ -1,5 +1,0 @@
----
-title: "Dairy Data Science"
-site: distill::distill_website
-listing: posts
----

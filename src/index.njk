@@ -1,0 +1,62 @@
+---
+layout: base.njk
+---
+<section class="who">
+  <img src="/img/portrait.jpg" alt="{{ site.name }}" width="112" height="112">
+  <div>
+    <h1>{{ site.name }}</h1>
+    <p>{{ site.role }}. {{ site.credentials }}</p>
+    <nav class="links">{% for link in site.links %}<a href="{{ link.href }}">{{ link.label }}</a>{% endfor %}</nav>
+  </div>
+</section>
+
+<div class="bio">
+  {% for line in site.bio %}<p>{{ line }}</p>{% endfor %}
+</div>
+
+<h2>Writing and talks</h2>
+<ul class="rows">
+  {% for entry in collections.entries %}
+  <li>
+    <span><a href="{{ entry.url }}">{{ entry.data.title }}</a>{% if entry.data.kind %}<span class="kind">{{ entry.data.kind }}</span>{% endif %}</span>
+    <time datetime="{{ entry.date | isoDate }}">{{ entry.date | monthYear }}</time>
+  </li>
+  {% endfor %}
+</ul>
+
+<h2>Papers</h2>
+{% for paper in papers %}
+<div class="paper{% if paper.figure %} has-fig{% endif %}">
+  {% if paper.figure %}<a class="fig" href="https://doi.org/{{ paper.doi }}" tabindex="-1" aria-hidden="true"><img src="{{ paper.figure }}" alt="" width="120" height="90" loading="lazy"></a>{% endif %}
+  <p>
+    {% if paper.doi %}<a href="https://doi.org/{{ paper.doi }}">{{ paper.title }}</a>{% else %}{{ paper.title }}{% endif %}
+    {% if paper.isNew %}<span class="pill">New</span>{% endif %}{% if paper.inReview %}<span class="pill">In review</span>{% endif %}
+    <small>{% if paper.authors %}{{ paper.authors }} · {% endif %}{{ paper.journal }}{% if paper.year %}, {{ paper.year }}{% endif %}</small>
+  </p>
+</div>
+{% endfor %}
+
+<h2>Projects</h2>
+<ul class="rows">
+  {% for project in projects %}
+  <li><span><a href="{{ project.url }}">{{ project.name }}</a><span class="kind">{{ project.description }}</span></span><time>{{ project.year }}</time></li>
+  {% endfor %}
+</ul>
+
+<h2>Code</h2>
+<div class="activity">
+  {% heatmap github.days %}
+  <div class="legend"><span>{{ github.total | number }} contributions in the last year</span><span class="scale">Less <i class="l0"></i><i class="l1"></i><i class="l2"></i><i class="l3"></i><i class="l4"></i> More</span></div>
+  <dl class="counts">
+    <div><dt>Commits</dt><dd>{{ github.counts.commits | number }}</dd></div>
+    <div><dt>Pull requests</dt><dd>{{ github.counts.pullRequests | number }}</dd></div>
+    <div><dt>Reviews</dt><dd>{{ github.counts.reviews | number }}</dd></div>
+    <div><dt>Issues</dt><dd>{{ github.counts.issues | number }}</dd></div>
+  </dl>
+  <p class="aside">Most of this work is in private repositories, so only the counts show here.</p>
+</div>
+<ul class="rows">
+  {% for repo in github.repos %}
+  <li><span><a href="{{ repo.url }}">{{ repo.name }}</a><span class="kind">{{ repo.description }}{% if repo.language %} · {{ repo.language }}{% endif %}</span></span><time datetime="{{ repo.pushedAt | isoDate }}">{{ repo.pushedAt | monthYear }}</time></li>
+  {% endfor %}
+</ul>
