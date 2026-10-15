@@ -53,7 +53,6 @@ layout: base.njk
     <div><dt>Reviews</dt><dd>{{ github.counts.reviews | number }}</dd></div>
     <div><dt>Issues</dt><dd>{{ github.counts.issues | number }}</dd></div>
   </dl>
-  <p class="aside">Most of this work is in private repositories, so only the counts show here.</p>
 </div>
 <ul class="rows">
   {% for repo in github.repos %}
