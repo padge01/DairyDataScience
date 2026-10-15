@@ -1,6 +1,6 @@
 {
- "fetchedAt": "2026-10-12T22:53:36.704Z",
- "total": 12214,
+ "fetchedAt": "2026-10-15T13:14:11.442Z",
+ "total": 12696,
  "days": [
   [
    "2025-10-12",
@@ -820,11 +820,11 @@
   ],
   [
    "2026-05-04",
-   56
+   55
   ],
   [
    "2026-05-05",
-   60
+   61
   ],
   [
    "2026-05-06",
@@ -1444,11 +1444,11 @@
   ],
   [
    "2026-10-07",
-   172
+   184
   ],
   [
    "2026-10-08",
-   34
+   129
   ],
   [
    "2026-10-09",
@@ -1460,20 +1460,39 @@
   ],
   [
    "2026-10-11",
-   7
+   28
   ],
   [
    "2026-10-12",
-   22
+   121
+  ],
+  [
+   "2026-10-13",
+   98
+  ],
+  [
+   "2026-10-14",
+   142
+  ],
+  [
+   "2026-10-15",
+   15
   ]
  ],
  "counts": {
-  "commits": 10890,
-  "pullRequests": 1284,
+  "commits": 11314,
+  "pullRequests": 1351,
   "reviews": 3,
   "issues": 28
  },
  "repos": [
+  {
+   "name": "bestpred-python",
+   "url": "https://github.com/padge01/bestpred-python",
+   "description": "Python translation of USDA's BESTPRED lactation records (305-day yields, persistency, daily curve). Same numbers as the original.",
+   "language": "Python",
+   "pushedAt": "2026-10-15T06:53:39Z"
+  },
   {
    "name": "xteink-pokemon-game",
    "url": "https://github.com/padge01/xteink-pokemon-game",

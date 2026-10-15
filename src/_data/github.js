@@ -1,12 +1,12 @@
 // GitHub activity for the home page: the contribution heatmap, the last year's commits, pull requests,
-// reviews and issues, and the public repos chosen below. Read at build time with GITHUB_TOKEN; without a
+// reviews and issues, and every public repo except forks, archived ones and those excluded below. Read at build time with GITHUB_TOKEN; without a
 // token (or if GitHub fails) the last saved snapshot is used, so a build never breaks on it.
 import { readFile, writeFile } from "node:fs/promises";
 
 const USER = "padge01";
 const SNAPSHOT = new URL("../../github-snapshot.json", import.meta.url);
-// Public repos to show, in this order. Private work appears only as counts in the heatmap.
-const REPOS = ["xteink-pokemon-game", "homelab"];
+// Public repos never shown. Every other public repo of my own (not a fork, not archived) shows, newest first.
+const EXCLUDE = ["DairyDataScience", "paris-family-agenda-2026"];
 
 async function gh(path, token, body) {
   const res = await fetch(`https://api.github.com${path}`, {
@@ -32,12 +32,9 @@ async function fresh(token) {
     count(`reviewed-by:${USER} -author:${USER} is:pr created:>=${since}`),
     count(`author:${USER} is:issue created:>=${since}`),
   ]);
-  const repos = await Promise.all(
-    REPOS.map(async (name) => {
-      const r = await gh(`/repos/${USER}/${name}`, token);
-      return { name: r.name, url: r.html_url, description: r.description, language: r.language, pushedAt: r.pushed_at };
-    }),
-  );
+  const repos = (await gh(`/users/${USER}/repos?type=owner&sort=pushed&per_page=100`, token))
+    .filter((r) => !r.fork && !r.archived && !r.private && !EXCLUDE.includes(r.name))
+    .map((r) => ({ name: r.name, url: r.html_url, description: r.description, language: r.language, pushedAt: r.pushed_at }));
   return {
     fetchedAt: new Date().toISOString(),
     total: calendar.totalContributions,
