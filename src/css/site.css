@@ -41,6 +41,22 @@ h2 { font: 600 20px/1.2 var(--sans); letter-spacing: -.01em; margin: 56px 0 14px
 .rows time { flex: none; font: 400 13px/1.9 var(--sans); color: var(--faint); font-variant-numeric: tabular-nums; }
 .kind { display: block; font: 400 13px/1.5 var(--sans); color: var(--faint); }
 
+/* Tools for AI agents: icon, name and year, what it does, where to get it, links. */
+.section-note { margin: -6px 0 6px; font: 400 14px/1.5 var(--sans); color: var(--soft); }
+.tool { display: grid; grid-template-columns: 56px minmax(0, 1fr); gap: 18px; padding: 16px 0; border-bottom: 1px solid var(--rule); }
+.tool img { width: 56px; height: 56px; border-radius: 12px; border: 1px solid var(--rule); }
+.tool p { margin: 0; }
+.tool-name { display: flex; justify-content: space-between; font: 600 17px/1.3 var(--sans); }
+.tool-name time { font: 400 13px/1.9 var(--sans); color: var(--faint); }
+.tool-desc { margin-top: 4px !important; font-size: 16px; line-height: 1.5; }
+.tool-get { margin: 10px 0 0; display: grid; gap: 4px; font: 400 13px/1.5 var(--sans); }
+.tool-get div { display: grid; grid-template-columns: 118px minmax(0, 1fr); gap: 10px; }
+.tool-get dt { color: var(--faint); }
+.tool-get dd { margin: 0; color: var(--soft); overflow-wrap: anywhere; }
+.tool-get code { font: 400 12.5px/1.5 var(--mono); background: var(--chip); padding: 1px 6px; border-radius: 4px; color: var(--ink); }
+.tool-links { display: flex; gap: 14px; margin-top: 8px; font: 500 13px/1 var(--sans); }
+.tool-links a { color: var(--soft); text-decoration: none; }
+.tool-links a:hover { color: var(--ink); }
 .paper { padding: 12px 0; border-bottom: 1px solid var(--rule); }
 .paper.has-fig { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: 18px; align-items: start; }
 .fig img { display: block; width: 120px; height: 90px; object-fit: cover; border-radius: 6px; border: 1px solid var(--rule); background: #fff; }
@@ -88,4 +104,5 @@ footer a { color: var(--faint); }
   .fig img { width: 88px; height: 66px; }
   .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .rows li { flex-direction: column; gap: 0; }
+  .tool-get div { grid-template-columns: 1fr; gap: 0; }
 }

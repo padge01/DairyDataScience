@@ -43,6 +43,22 @@ layout: base.njk
   {% endfor %}
 </ul>
 
+<h2>Tools for AI agents</h2>
+<p class="section-note">Agents can't do this arithmetic reliably in their heads. These give them the methods that can.</p>
+{% for tool in tools %}
+<div class="tool">
+  <img src="{{ tool.icon }}" alt="" width="56" height="56">
+  <div>
+    <p class="tool-name">{{ tool.name }}<time>{{ tool.year }}</time></p>
+    <p class="tool-desc">{{ tool.description }}</p>
+    <dl class="tool-get">
+      {% for g in tool.get %}<div><dt>{{ g.where }}</dt><dd>{% if g.code %}<code>{{ g.how }}</code>{% else %}{{ g.how }}{% endif %}</dd></div>{% endfor %}
+    </dl>
+    <nav class="tool-links">{% for l in tool.links %}<a href="{{ l.url }}">{{ l.label }}</a>{% endfor %}</nav>
+  </div>
+</div>
+{% endfor %}
+
 <h2>Code</h2>
 <div class="activity">
   {% heatmap github.days %}
