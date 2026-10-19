@@ -96,6 +96,8 @@ h2 { font: 600 20px/1.2 var(--sans); letter-spacing: -.01em; margin: 56px 0 14px
 footer { margin-top: 72px; padding-top: 16px; border-top: 1px solid var(--rule); font: 400 13px/1.6 var(--sans); color: var(--faint); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; }
 footer a { color: var(--faint); }
 
+/* On a computer screen, everything a size larger: the page read small and far away at 100%. */
+@media (min-width: 900px) { body { zoom: 1.2; } }
 @media (max-width: 560px) {
   body { font-size: 17px; }
   .who { flex-direction: column; align-items: flex-start; gap: 16px; }
