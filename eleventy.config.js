@@ -32,6 +32,7 @@ export default function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy("src/talks/**/*.pdf");
   eleventyConfig.addPassthroughCopy("src/writing/**/*.{png,jpg,jpeg,gif,svg,webp}");
   eleventyConfig.addPassthroughCopy({ "src/_redirects": "_redirects" });
+  eleventyConfig.addPassthroughCopy("src/robots.txt");
   // The ARPAS 2026 deck: one built file and its PDF, copied as they are (unlisted: nothing links here; noindex).
   eleventyConfig.addPassthroughCopy("src/arpas-2026");
   eleventyConfig.ignores.add("src/arpas-2026/**");
