@@ -39,6 +39,9 @@ h2 { font: 600 20px/1.2 var(--sans); letter-spacing: -.01em; margin: 56px 0 14px
 .rows { margin: 0; padding: 0; list-style: none; }
 .rows li { display: flex; justify-content: space-between; gap: 20px; padding: 10px 0; border-bottom: 1px solid var(--rule); }
 .rows time { flex: none; font: 400 13px/1.9 var(--sans); color: var(--faint); font-variant-numeric: tabular-nums; }
+.row-end { flex: none; display: flex; align-items: baseline; gap: 14px; }
+.dl { display: inline-flex; align-items: center; gap: 5px; align-self: center; font: 400 13px/1 var(--sans); color: var(--soft); text-decoration: none; border: 1px solid var(--line); border-radius: 6px; padding: 5px 9px; }
+.dl:hover { color: var(--ink); border-color: var(--ink); }
 .kind { display: block; font: 400 13px/1.5 var(--sans); color: var(--faint); }
 
 /* Tools for AI agents: icon, name and year, what it does, where to get it, links. */
@@ -106,5 +109,7 @@ footer a { color: var(--faint); }
   .fig img { width: 88px; height: 66px; }
   .counts { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .rows li { flex-direction: column; gap: 0; }
+  .row-end { margin-top: 6px; }
+  .dl { padding: 9px 12px; }
   .tool-get div { grid-template-columns: 1fr; gap: 0; }
 }

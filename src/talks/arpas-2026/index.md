@@ -2,6 +2,8 @@
 title: "Mining dairy data with AI agents"
 date: 2026-10-28
 kind: "Talk · California ARPAS CEC 2026"
+link: "/arpas-2026/"
+pdf: "/arpas-2026/slides.pdf"
 ---
 
 Invited talk at the California ARPAS CEC, Wednesday 28 October 2026.
