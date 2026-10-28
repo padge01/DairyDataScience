@@ -1,6 +1,40 @@
 // Tools Pádraig publishes for AI agents (MCP servers and plugins), newest first. Each lists where to get it.
 export default [
   {
+    name: "Ration Lab",
+    icon: "/img/tools/ration-lab.png",
+    description:
+      "Dairy rations balanced on NASEM 2021, in your browser or by any AI agent: least cost or most profit, for a group of cows or a whole pen, with the variation in feed tests counted in. Your farms stay in your own account.",
+    get: [
+      { where: "In your browser", how: "lab.dairydatascience.com" },
+      { where: "Any agent", how: "https://lab.dairydatascience.com/mcp", code: true },
+      { where: "Claude", how: "Add a custom connector with the address above" },
+    ],
+    links: [
+      { label: "Open the lab", url: "https://lab.dairydatascience.com/" },
+      { label: "Privacy", url: "https://lab.dairydatascience.com/privacy" },
+      { label: "Terms", url: "https://lab.dairydatascience.com/terms" },
+    ],
+    year: 2026,
+  },
+  {
+    name: "Dairy Data Tools",
+    icon: "/img/tools/dairy-data-tools.png",
+    description:
+      "A dairy's own DairyComp and EZfeed exports, read by your AI assistant: the herd, each pen and cow, pen cows joined to pen feed, a weekly or visit review, and a ration change with the season taken out. Worked out by tested scripts, not guessed.",
+    get: [
+      { where: "Claude", how: "Customize > Plugins > Add marketplace: padge01/dairy-data-tools" },
+      { where: "Codex and others", how: "npx skills add padge01/dairy-data-tools", code: true },
+      { where: "On your computer", how: "pip install dairy-data-tools", code: true },
+    ],
+    links: [
+      { label: "GitHub", url: "https://github.com/padge01/dairy-data-tools" },
+      { label: "PyPI", url: "https://pypi.org/project/dairy-data-tools/" },
+      { label: "DOI", url: "https://doi.org/10.5281/zenodo.23493936" },
+    ],
+    year: 2026,
+  },
+  {
     name: "BESTPRED",
     icon: "/img/tools/bestpred.png",
     description:
