@@ -4,10 +4,10 @@ export default [
     name: "Ration Lab",
     icon: "/img/tools/ration-lab.png",
     description:
-      "Dairy rations balanced on NASEM 2021, in your browser or by any AI agent: least cost or most profit, for a group of cows or a whole pen, with the variation in feed tests counted in. Your farms stay in your own account.",
+      "Fully featured ration formulation software built in Rust, with multiple linear and nonlinear solvers. Includes chance-constrained solutions based on the variation in feed tests, and the variation between cows in a pen from my PhD thesis. Available online, or as an MCP server your AI agent can connect to and run.",
     get: [
       { where: "In your browser", how: "lab.dairydatascience.com" },
-      { where: "Any agent", how: "https://lab.dairydatascience.com/mcp", code: true },
+      { where: "MCP server", how: "https://lab.dairydatascience.com/mcp", code: true },
       { where: "Claude", how: "Add a custom connector with the address above" },
     ],
     links: [
