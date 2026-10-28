@@ -19,7 +19,7 @@ layout: base.njk
   {% for entry in collections.entries %}
   <li>
     <span><a href="{{ entry.data.link or entry.url }}">{{ entry.data.title }}</a>{% if entry.data.kind %}<span class="kind">{{ entry.data.kind }}</span>{% endif %}</span>
-    <span class="row-end">{% if entry.data.pdf %}<a class="dl" href="{{ entry.data.pdf }}" download="Padraig-Lucey-ARPAS-2026.pdf" aria-label="Download the slides (PDF)"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF</a>{% endif %}<time datetime="{{ entry.date | isoDate }}">{{ entry.date | monthYear }}</time></span>
+    <span class="row-end"><time datetime="{{ entry.date | isoDate }}">{{ entry.date | monthYear }}</time>{% if entry.data.pdf %}<a class="dl" href="{{ entry.data.pdf }}" download="Padraig-Lucey-ARPAS-2026.pdf" aria-label="Download the slides (PDF)"><svg viewBox="0 0 16 16" width="13" height="13" aria-hidden="true"><path d="M8 2v8m-3.5-3.5L8 10l3.5-3.5M3 13h10" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>PDF</a>{% endif %}</span>
   </li>
   {% endfor %}
 </ul>
