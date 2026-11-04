@@ -36,6 +36,8 @@ export default function (eleventyConfig) {
   // The ARPAS 2026 deck: one built file and its PDF, copied as they are (unlisted: nothing links here; noindex).
   eleventyConfig.addPassthroughCopy("src/arpas-2026");
   eleventyConfig.ignores.add("src/arpas-2026/**");
+  eleventyConfig.addPassthroughCopy("src/agai-agents");
+  eleventyConfig.ignores.add("src/agai-agents/**");
 
   eleventyConfig.addShortcode("heatmap", heatmap);
   eleventyConfig.addFilter("monthYear", (d) => {

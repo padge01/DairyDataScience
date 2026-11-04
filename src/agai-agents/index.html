@@ -1,0 +1,403 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>agAI Farm Agents</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600;700&family=Source+Sans+3:wght@400;600;700&display=swap">
+<style>
+/* Layout: one reading column; a short "what you get" opener, then one band per area, each job a row with its example card beside it (stacked on a phone). */
+:root {
+  --bg: #f5f6f2;
+  --surface: #ffffff;
+  --ink: #1d231f;
+  --muted: #5b655e;
+  --line: #d9ddd5;
+  --accent: #2f6b4f;
+  --live: #2f6b4f; --live-bg: #e3efe7;
+  --built: #8a5a12; --built-bg: #f6ead6;
+  --coming: #4f5866; --coming-bg: #e9ecf0;
+  --measured: #1f4f8a; --measured-bg: #e4ecf7;
+  --example: #6b5b2f;
+  --display: "Barlow Semi Condensed", "Arial Narrow", Arial, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", Helvetica, Arial, sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #141815; --surface: #1c221e; --ink: #e6ebe6; --muted: #a2ada5; --line: #313a34; --accent: #7cc39c;
+    --live: #8fd3ad; --live-bg: #1f3529; --built: #e7b46a; --built-bg: #3a2c16; --coming: #b7c0cc; --coming-bg: #282e36;
+    --measured: #9cc0ee; --measured-bg: #1d2b3d; --example: #d6c48f; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #141815; --surface: #1c221e; --ink: #e6ebe6; --muted: #a2ada5; --line: #313a34; --accent: #7cc39c;
+  --live: #8fd3ad; --live-bg: #1f3529; --built: #e7b46a; --built-bg: #3a2c16; --coming: #b7c0cc; --coming-bg: #282e36;
+  --measured: #9cc0ee; --measured-bg: #1d2b3d; --example: #d6c48f; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body { background: var(--bg); color: var(--ink); font-family: var(--body); font-size: 16px; line-height: 1.5; }
+.wrap { max-width: 1060px; margin: 0 auto; padding-block: 28px 64px; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3 { font-family: var(--display); text-wrap: balance; margin: 0; line-height: 1.15; }
+h1 { font-size: clamp(2rem, 5vw, 2.8rem); font-weight: 700; letter-spacing: -0.01em; }
+h2 { font-size: 1.6rem; font-weight: 700; }
+h3 { font-size: 1.2rem; font-weight: 600; }
+p { margin: 0; }
+.lede { font-size: 1.15rem; color: var(--muted); max-width: 62ch; margin-top: 10px; }
+.gets { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 14px; margin-top: 22px; }
+.gets div { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; }
+.gets b { display: block; font-family: var(--display); font-size: 1.15rem; margin-bottom: 4px; }
+.gets p { color: var(--muted); font-size: 0.95rem; }
+.tally { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 22px; font-size: 0.95rem; align-items: center; }
+.tally span { display: inline-flex; gap: 8px; align-items: center; }
+.key { margin-top: 12px; color: var(--muted); font-size: 0.9rem; max-width: 70ch; }
+nav.areas { display: flex; flex-wrap: wrap; gap: 8px; margin: 26px 0 8px; }
+nav.areas a { color: var(--ink); text-decoration: none; border: 1px solid var(--line); background: var(--surface); padding: 6px 12px; border-radius: 999px; font-weight: 600; font-size: 0.92rem; }
+nav.areas a:hover, nav.areas a:focus-visible { border-color: var(--accent); outline: none; }
+section.area { margin-top: 40px; }
+.areahead { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; flex-wrap: wrap; border-bottom: 2px solid var(--ink); padding-bottom: 8px; }
+.areahead small { color: var(--muted); font-size: 0.92rem; }
+.job { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); gap: 18px 28px; padding: 20px 0; border-bottom: 1px solid var(--line); }
+@media (max-width: 760px) { .job { grid-template-columns: minmax(0, 1fr); } }
+.jobtop { display: flex; gap: 10px; align-items: center; flex-wrap: wrap; }
+.code { font-family: var(--display); font-weight: 600; color: var(--muted); font-size: 0.95rem; font-variant-numeric: tabular-nums; }
+.watch { margin-top: 6px; }
+.here { margin-top: 8px; color: var(--muted); font-size: 0.93rem; }
+.here b { color: var(--ink); font-weight: 600; }
+.pill { display: inline-flex; align-items: center; gap: 6px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 2px 9px; border-radius: 4px; border: 1px solid transparent; white-space: nowrap; }
+.pill::before { content: ""; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+.pill.live { color: var(--live); background: var(--live-bg); }
+.pill.built { color: var(--built); background: var(--built-bg); }
+.pill.built::before { border-radius: 1px; }
+.pill.coming { color: var(--coming); background: var(--coming-bg); }
+.pill.coming::before { background: transparent; border: 1.5px dashed currentColor; width: 7px; height: 7px; }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 8px; padding: 14px 16px; min-width: 0; }
+.card.ex { border-style: dashed; }
+.card .tag { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; margin-bottom: 8px; }
+.card .tag .m { color: var(--measured); background: var(--measured-bg); padding: 2px 8px; border-radius: 4px; }
+.card .tag .e { color: var(--example); border: 1px dashed var(--example); padding: 1px 7px; border-radius: 4px; }
+.card .tag .where { color: var(--muted); text-transform: none; letter-spacing: 0; font-weight: 600; }
+.card h4 { margin: 0 0 6px; font-family: var(--display); font-size: 1.12rem; font-weight: 600; line-height: 1.25; text-wrap: balance; }
+.card ul { margin: 0; padding-left: 18px; color: var(--ink); font-size: 0.95rem; }
+.card li + li { margin-top: 3px; }
+.card .do { margin-top: 8px; font-size: 0.93rem; color: var(--muted); }
+.card .do b { color: var(--ink); }
+.foot { margin-top: 44px; color: var(--muted); font-size: 0.9rem; max-width: 70ch; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+</style>
+</head>
+<body style="margin:0">
+
+<div class="wrap">
+  <header>
+    <p class="code" style="letter-spacing:.08em;text-transform:uppercase">agAI · farm agents</p>
+    <h1>Agents that own a result on your dairy</h1>
+    <p class="lede">Each agAI agent is given one part of the dairy to look after. It reads every load of your records, judges the newest 30 days against your own farm's year, and brings a finding only when something has moved: what it is, the cows or pens behind it, the likely cause, and what to check first.</p>
+    <div class="gets">
+      <div><b>An owner for each result</b><p>Fresh cows, deaths and culls, breeding, milk quality, feeding, calves, money and daily work each have an agent that answers for them.</p></div>
+      <div><b>Watches every load</b><p>Each new day of DairyComp, milk and feed records is read as it arrives. Nothing waits for a monthly report.</p></div>
+      <div><b>Finding, cause and cows</b><p>A finding names the cows, pens or groups behind it, how sure it is, and the cause that stands out. It stays open until the number comes back.</p></div>
+      <div><b>Quiet when the farm is fine</b><p>No finding is made up to fill the page. Where the records don't hold what an agent needs, it says so plainly.</p></div>
+    </div>
+    <div class="tally" id="tally"></div>
+    <p class="key">Cards marked <b>Measured</b> are real readings on agAI's two demo dairies, Larkspur Flats and Mesa Palomar, on 4 November 2026. Cards marked <b>Example</b> show what a finding looks like; their figures are illustrations, not measurements.</p>
+    <nav class="areas" id="areas" aria-label="Areas"></nav>
+  </header>
+  <main id="main"></main>
+  <p class="foot">agAI reads only what the farm records. Lameness, days open, labour and drug costs are not priced where no costs are recorded. An agent that cannot read a farm says why on its own line.</p>
+</div>
+
+<script>
+const AREAS = [
+  ["health", "Health", "Fresh cows, deaths, close-up, heat, dry period, lameness, hospital"],
+  ["repro", "Reproduction", "Breeding on time, conception, pregnancy loss"],
+  ["milk", "Milk quality", "Mastitis, dry-period infections, contagious cows, tank bacteria"],
+  ["nutrition", "Nutrition", "Intake, dry cow feeding, ration loading, feed shrink"],
+  ["calves", "Calves and heifers", "Colostrum, where calves go, heifer growth, breed codes, heifer numbers"],
+  ["money", "Money", "Income over feed, milk check, cost of problems, cull sales, margin ahead"],
+  ["management", "Management", "Daily work, records, pen moves, stocking, herd size"],
+];
+// state: live | built | coming. card.kind: m (measured on a demo dairy) | e (example, not measured).
+const JOBS = [
+  // Health
+  { a: "health", id: "f1", name: "Fresh cows that start well", s: "live",
+    w: "Each cow's first 30 days after calving: milk fever, ketosis, a displaced stomach, metritis, a retained cleaning, a slow start, and cows that leave.",
+    here: "<b>Mesa Palomar:</b> finding below. Larkspur Flats: quiet.",
+    c: { kind: "m", where: "Mesa Palomar, 30 days to 5 Oct", h: "Fresh cows with a fresh-cow disease: 38%, up from 21%",
+      li: ["30 of 78 cows that calved had a fresh-cow disease", "Usual: 254 of 1,184 over the year before (21%)", "Up in second and later lactations: 25 of 54, usually about 22%", "First-calf heifers at their usual: 5 of 24"],
+      do: "Go over the fresh pen with whoever checks the fresh cows." } },
+  { a: "health", id: "h1", name: "Deaths and culls by reason and stage", s: "live",
+    w: "Cows that died or were sold each 30 days, by reason, days in milk, lactation and pen, against the cows on hand.",
+    here: "<b>Mesa Palomar:</b> finding below. Larkspur Flats: quiet.",
+    c: { kind: "m", where: "Mesa Palomar, 30 days to 4 Nov", h: "Cows died: 15 in 30 days, usually about 6",
+      li: ["14 of the 15 died for disease; their usual gives about 5", "Pen 105: 4 deaths, where it usually has none", "Cows past 305 days in milk: 4, usually about 1"],
+      do: "Ask whoever made the call on these cows what changed, and look at pen 105 first." } },
+  { a: "health", id: "f2", name: "Days in the close-up pen", s: "live",
+    w: "Days from the move to the close-up pen to calving. Too short a stay, or none, raises fresh-cow disease.",
+    here: "<b>Larkspur Flats:</b> finding below. Mesa Palomar: quiet.",
+    c: { kind: "m", where: "Larkspur Flats, 30 days to 2 Nov", h: "Calved with a short close-up stay or none: 23%, up from 0%",
+      li: ["66 of 284 calvings", "All 66 were first-calf heifers: 66 of 112 heifers that calved", "Cows in second lactation and up: none short"],
+      do: "Check how heifers are picked for the close-up pen: they are often moved from another place, on another day." } },
+  { a: "health", id: "h4", name: "Heat stress watch", s: "live",
+    w: "Milk and health on hot days against the farm's own cool days, by pen.",
+    here: "Quiet on both demo dairies: no hot spell in the last 14 days.",
+    c: { kind: "e", h: "Milk on hot days: 4.1 lb a cow below cool days",
+      li: ["9 hot days of the last 14", "Pens 3 and 5 lost the most: 6 lb a cow", "Fresh pen: 2 more sick cows than usual"],
+      do: "Check soakers and fans in pens 3 and 5 first." } },
+  { a: "health", id: "f3", name: "Dry-off and the dry period", s: "live",
+    w: "Dry periods under 40 days, over 70, or with no dry-off recorded; dry cows that die or are sold before calving.",
+    here: "Quiet on both: every dry period ran 40 to 70 days.",
+    c: { kind: "e", h: "Dry periods under 40 days: 14%, up from 5%",
+      li: ["11 of 78 cows calved after a short dry period", "8 of the 11 were dried off on due dates set from a later breeding", "Second-lactation cows most"],
+      do: "Check the dry-off list against confirmed due dates." } },
+  { a: "health", id: "h2", name: "Lameness", s: "live",
+    w: "New lame cows against cows on hand, fresh cows lame in 30 days, and lame cows that leave within 60 days.",
+    here: "Read on both: new cases at each farm's usual.",
+    c: { kind: "e", h: "New lame cows: 31 in 30 days, usually about 18",
+      li: ["Pen 4: 12 new cases, usually about 4", "Cows 60 to 150 days in milk most", "Fresh cows lame in 30 days: at usual"],
+      do: "Walk pen 4 and its lanes: stalls, bedding, standing water, the footbath's mix and change." } },
+  { a: "health", id: "h3", name: "Hospital pen outcomes", s: "live",
+    w: "Cows into the hospital pen, and what became of each 30 days later: back in a pen, sold, or died.",
+    here: "Not read on the demo dairies: no pen is named hospital or sick.",
+    c: { kind: "e", h: "Cows out of the hospital pen alive: 71%, usually 84%",
+      li: ["9 of 31 cows that went in died or were sold within 30 days", "Most came in with pneumonia after calving"],
+      do: "Go over hospital treatments and how long cows stay before a call is made." } },
+  { a: "health", id: "f4", name: "Close-up cows at highest risk", s: "coming",
+    w: "Names the close-up cows most likely to have a hard start, before they calve.",
+    here: "Coming: needs a frozen test set and baseline first.",
+    c: { kind: "e", h: "8 close-up cows to watch this week",
+      li: ["Cows 4412, 3871 and 5120: older, long dry period, high body condition at dry-off", "Each with her own reasons listed"],
+      do: "Check these cows first at fresh checks." } },
+  // Repro
+  { a: "repro", id: "b1", name: "Cows bred on time", s: "live",
+    w: "Cows past the voluntary waiting period not yet bred, and how fast open cows are served.",
+    here: "Quiet on both demo dairies.",
+    c: { kind: "e", h: "Cows past 80 days in milk not yet bred: 46, usually about 20",
+      li: ["Pen 6: 18 of them", "Most missed one timed-breeding shot"],
+      do: "Check the shot list for pen 6 this week." } },
+  { a: "repro", id: "b3", name: "Sires, semen and technicians", s: "live",
+    w: "Services that took, by sire, technician, service number and heat against timed breeding.",
+    here: "Quiet on both demo dairies.",
+    c: { kind: "e", h: "Services that took: 33%, usually 41%",
+      li: ["One sire: 22% of 64 services", "Heifer services most"],
+      do: "Check that sire's semen handling and thaw." } },
+  { a: "repro", id: "b2", name: "Pregnancy loss", s: "live",
+    w: "Confirmed pregnancies followed 60 days: lost to an abortion, an open check or a new service. Cows and heifers apart.",
+    here: "Read on both: losses at each farm's usual (Larkspur Flats 5 of 120 confirmed cows).",
+    c: { kind: "e", h: "Pregnancies lost: 11%, usually 5%",
+      li: ["14 of 127 confirmed cows lost the calf in 60 days", "Bred on hot days most"],
+      do: "Look at the lost cows' breeding dates and recheck vaccinations." } },
+  { a: "repro", id: "b4", name: "Sexed pregnancies against heifers needed", s: "coming",
+    w: "Whether the farm is making the dairy heifers it needs, or too many.",
+    here: "Coming: waits on agAI's breeding models.",
+    c: { kind: "e", h: "Sexed pregnancies: 180 more than the heifers needed a year",
+      li: ["Beef semen on the bottom third would save the extra heifer rearing"],
+      do: "Look at which cows get sexed semen." } },
+  // Milk quality
+  { a: "milk", id: "m2", name: "Mastitis case outcomes", s: "live",
+    w: "Each clinical case followed 60 days from the last treatment: came back, died or sold, or neither.",
+    here: "Read on both: outcomes at each farm's usual.",
+    c: { kind: "e", h: "Cases that came back: 24%, usually 12%",
+      li: ["19 of 78 cases came back within 60 days", "Repeat cases from last lactation most"],
+      do: "Go over treatment length and which cows get treated again." } },
+  { a: "milk", id: "m3", name: "Infections across the dry period", s: "live",
+    w: "Cows that go dry infected and stay infected, and cows that pick up a new infection while dry.",
+    here: "Larkspur Flats quiet. Mesa Palomar not read: test-day cell counts thin since July.",
+    c: { kind: "e", h: "New infections while dry: 22%, usually 14%",
+      li: ["17 of 77 cows above 200,000 cells at first test after a clean last test", "Dry pen 2 most"],
+      do: "Check dry-cow treatment and teat sealant in dry pen 2." } },
+  { a: "milk", id: "m4", name: "Contagious cows followed through", s: "live",
+    w: "Cows positive for Staph aureus or Mycoplasma, and whether they are kept apart, milked last or leave.",
+    here: "Quiet on both demo dairies.",
+    c: { kind: "e", h: "3 new Staph aureus cows still in the main string",
+      li: ["Cows 2214, 3390 and 4471 tested positive in October"],
+      do: "Move them to the last string or decide on culling." } },
+  { a: "milk", id: "m5", name: "Tank bacteria", s: "live",
+    w: "High bacteria counts on tank tests against the farm's own year.",
+    here: "Larkspur Flats quiet. Mesa Palomar not read: two tank tests a week, three needed.",
+    c: { kind: "e", h: "High bacteria count on 60% of tests, usually 22%",
+      li: ["Tank 2: 250,000 on 28 Oct"],
+      do: "Check wash temperatures and the cooling on tank 2." } },
+  { a: "milk", id: "m6", name: "Mastitis warning from the parlor", s: "coming",
+    w: "Flags cows likely to come down with mastitis from parlor milk and conductivity.",
+    here: "Coming: wraps agAI's mastitis warning model.",
+    c: { kind: "e", h: "6 cows likely to show mastitis in the next 3 days",
+      li: ["Each with her conductivity and milk drop"],
+      do: "Strip these cows at the next milking." } },
+  // Nutrition
+  { a: "nutrition", id: "n1", name: "Weigh-backs and real intake", s: "live",
+    w: "Feed delivered and eaten a head by pen, against the ration's target.",
+    here: "Larkspur Flats: within a few points of target. Mesa Palomar: no weigh-backs recorded, so feed delivered is read instead.",
+    c: { kind: "e", h: "Pen 3 eating 2.6 lb dry matter a cow less than usual",
+      li: ["Weigh-backs up from 3% to 8% in a week", "Same ration as pens 2 and 4, which are steady"],
+      do: "Check the mix and push-ups in pen 3." } },
+  { a: "nutrition", id: "n2", name: "Close-up and dry cow feeding", s: "live",
+    w: "Head counts in the dry and close-up pens against the feed delivered there, and ration changes.",
+    here: "Quiet on both demo dairies.",
+    c: { kind: "e", h: "Close-up pen fed for 20 fewer cows than are in it",
+      li: ["Feeding records count 84 head; DairyComp has 104"],
+      do: "Update the close-up head count in the feeding program." } },
+  { a: "nutrition", id: "n3", name: "Diet fed against diet formulated", s: "live",
+    w: "Each ingredient loaded into the mixer against what the formula calls for, week by week.",
+    here: "Not read on the demo dairies: no mixer loading records.",
+    c: { kind: "e", h: "Corn silage loaded 6% over the formula",
+      li: ["Most on the evening loads", "High cow ration only"],
+      do: "Check the evening loader's scale readings." } },
+  { a: "nutrition", id: "n4", name: "Feed shrink and inventory", s: "live",
+    w: "Feed loaded into the mixer against feed dropped in the pens.",
+    here: "Not read on the demo dairies: no mixer loading records.",
+    c: { kind: "e", h: "4.5% of loaded feed not reaching the pens, usually 1.8%",
+      li: ["Fresh cow ration most"],
+      do: "Check the mixer scale and the drop-off at the fresh pen." } },
+  { a: "nutrition", id: "n5", name: "What a diet change will do here", s: "coming",
+    w: "Before a ration change, what it is likely to do to milk and components on this farm.",
+    here: "Coming: needs a frozen test set and baseline first.",
+    c: { kind: "e", h: "Proposed ration: about +1.2 lb milk a cow",
+      li: ["Range 0.4 to 2.0 lb, from the farm's past changes"],
+      do: "Try it on one pen first." } },
+  // Calves
+  { a: "calves", id: "c1", name: "Colostrum program", s: "live",
+    w: "Each calf's first colostrum: under 22% Brix or under 3 quarts, by feeder, time of day and weekday.",
+    here: "Not read on the demo dairies: no colostrum feedings recorded.",
+    c: { kind: "e", h: "Calves fed weak colostrum: 19%, usually 7%",
+      li: ["Night feedings most", "One feeder: 11 of 24 calves"],
+      do: "Check the refractometer and colostrum storage on the night shift." } },
+  { a: "calves", id: "c2", name: "Where the calves went", s: "live",
+    w: "Each calf born: kept, sold, sent to the calf ranch or died, and calves sold without a treatment record.",
+    here: "Quiet on both demo dairies.",
+    c: { kind: "e", h: "Calves dead in the first week: 6%, usually 3%",
+      li: ["14 of 230 calves", "Born on weekends most"],
+      do: "Check who handles calvings and newborn calves on weekends." } },
+  { a: "calves", id: "c3", name: "Heifer growth and age at first calving", s: "live",
+    w: "First calvings older than the farm's usual, and heifers gaining slowest where they are weighed twice.",
+    here: "Read on both: age at first calving about 23.7 months (Larkspur Flats) and 23.8 (Mesa Palomar), at usual. Heifers are not weighed, so gain is not read.",
+    c: { kind: "e", h: "First calvings past 25 months: 41%, usually 24%",
+      li: ["Heifers that needed 3 or more services most"],
+      do: "Check heifer heat detection and breeding age." } },
+  { a: "calves", id: "c4", name: "Calves coded the wrong breed", s: "live",
+    w: "Heifers coded dairy whose sire is a beef bull, from her own sire and her dam's breeding.",
+    here: "Larkspur Flats at its usual, no card. Mesa Palomar quiet.",
+    c: { kind: "e", h: "Beef-sired heifers coded dairy: 18 of 404, usually 1%",
+      li: ["One beef sire stands out", "Each heifer listed by number, pen and sire"],
+      do: "Correct the codes before these calves are sent out as dairy." } },
+  { a: "calves", id: "c5", name: "Heifers on hand against need", s: "live",
+    w: "Heifers due to calve in the next 12 months against the cows the herd loses a year.",
+    here: "<b>Mesa Palomar:</b> finding below. Larkspur Flats: quiet (1,330 heifers against about 1,134 cows leaving).",
+    c: { kind: "m", where: "Mesa Palomar, to 3 Nov", h: "Heifers to calve in the next 12 months: 534, more than about 443 cows leaving a year",
+      li: ["First calving at 23.8 months, against 24.7 the year before", "428 cows left over the year, against 453 the year before"],
+      do: "Decide how many extra heifers to sell or breed to beef." } },
+  // Money
+  { a: "money", id: "d1", name: "Income over feed cost by pen", s: "live",
+    w: "Milk income less feed cost a cow a day, each milking pen and the farm, week by week.",
+    here: "Not read on the demo dairies: no price for Milk Cow Premix, Dry Cow Premix or Wet Brewers Grain.",
+    c: { kind: "e", h: "Income over feed: $9.80 a cow a day, usually $11.40",
+      li: ["Pen 7 lowest: $7.20", "Feed cost up $0.90; milk price steady"],
+      do: "Look at pen 7's ration cost and milk." } },
+  { a: "money", id: "d2", name: "Milk check estimate", s: "live",
+    w: "Each month's milk shipped at the federal order's value, split into pounds, the market and the tank's tests.",
+    here: "Not read on the demo dairies: too few months of milk loads.",
+    c: { kind: "e", h: "October milk check about $412,000, $38,000 under September",
+      li: ["$22,000 from fewer pounds", "$16,000 from a lower Class III"],
+      do: "Look at where pounds dropped." } },
+  { a: "money", id: "d3", name: "What each problem costs this month", s: "live",
+    w: "Deaths, early sales and mastitis priced at public prices, against the farm's own months.",
+    here: "Not read on the demo dairies: milk value only since August.",
+    c: { kind: "e", h: "Problems priced: about $61,000 this month, usually $38,000",
+      li: ["Deaths: $43,000 (14 cows at $3,100)", "Mastitis milk thrown away: at least $6,800"],
+      do: "Start with the deaths." } },
+  { a: "money", id: "d4", name: "Cull and calf sales", s: "live",
+    w: "Cull cows and calves sold each 30 days, valued at the USDA Southwest market.",
+    here: "<b>Mesa Palomar:</b> finding below. Larkspur Flats: quiet.",
+    c: { kind: "m", where: "Mesa Palomar, 30 days to 3 Nov", h: "Cull cows sold: about $24,700, usually about $54,800",
+      li: ["17 cows sold, usually about 30", "The market paid $261.86 a cwt dressed, usually about $318.51", "Range $10,126 to $41,665, lightest to heaviest cows"],
+      do: "Fewer culls and a weaker market: plan the next cull list with prices in view." } },
+  { a: "money", id: "d5", name: "Margin outlook", s: "live",
+    w: "Income over feed carried ahead at the milk futures' Class III, with a range.",
+    here: "Not read on the demo dairies: feed not fully priced.",
+    c: { kind: "e", h: "Next 8 weeks: margin about $1.10 a cow a day under the farm's usual",
+      li: ["Range $0.60 to $1.70, from the futures"],
+      do: "Review feed contracts and the cull plan." } },
+  // Management
+  { a: "management", id: "g1", name: "The herd's daily work lists", s: "live",
+    w: "Whether the daily lists (fresh checks, vet checks, dry-offs, shots) are done on time.",
+    here: "Quiet on both demo dairies.",
+    c: { kind: "e", h: "Vet check list: 31 cows past their day, usually 6",
+      li: ["Pen 2 and pen 6 most"],
+      do: "Add the missed cows to Thursday's vet check." } },
+  { a: "management", id: "g2", name: "Records check", s: "live",
+    w: "Entries missing what makes them useful: a technician on a service, a reason on an exit, a sire on a calf.",
+    here: "<b>Both dairies:</b> a steady gap, not a rise. Larkspur Flats below.",
+    c: { kind: "m", where: "Larkspur Flats, 30 days to 3 Nov", h: "Services with no technician recorded: 23%, usual 24%",
+      li: ["Pen 31: 91 of 248 entries with no technician", "Mesa Palomar: 27%, usual 24%"],
+      do: "Each entry without a technician cannot be counted for that technician's conception." } },
+  { a: "management", id: "g3", name: "Pen moves that cost milk", s: "built",
+    w: "Cows that milk 10% and 5 lb a day less the week after a pen move than the week before.",
+    here: "Built and read on both demo dairies; held back until it is checked on more farms.",
+    c: { kind: "e", h: "Cows moved that dropped 10% in milk: 14%, usually 5%",
+      li: ["Cows moved into pen 8 most", "Moved alone most"],
+      do: "Move cows in small groups, at the same time of day." } },
+  { a: "management", id: "g4", name: "Pen space and stocking", s: "live",
+    w: "Days a pen holds 10% and 5 head more than its own usual count.",
+    here: "Read on both: crowded days up, as in the same season last year, so no card.",
+    c: { kind: "e", h: "Pen 5 over its usual count on 24 of 30 days",
+      li: ["Fresh cows waiting for room in pen 5"],
+      do: "Count stalls and headlocks in pen 5 against the cows in it." } },
+  { a: "management", id: "g5", name: "Cow value: keep, breed or cull", s: "coming",
+    w: "Each cow's value to keep, breed again or cull, from her milk, health and pregnancy.",
+    here: "Coming: waits on agAI's breeding models.",
+    c: { kind: "e", h: "22 open cows worth less than a replacement heifer",
+      li: ["Each with her expected milk, days open and cull value"],
+      do: "Go over the list before breeding them again." } },
+  { a: "management", id: "g6", name: "Herd size and calvings ahead", s: "live",
+    w: "Calvings due in the next 90 days against the farm's usual, with the herd's size beside it.",
+    here: "Read on both: 828 calvings due in 90 days at Larkspur Flats (usual about 771) and 359 at Mesa Palomar (usual about 292), as far out as the same season a year before, so no card.",
+    c: { kind: "e", h: "Calvings due in the next 90 days: 410, usually about 290",
+      li: ["Heifers: 160 of them", "December busiest"],
+      do: "Plan close-up and fresh pen space for December." } },
+];
+
+const STATE = { live: "Live", built: "Built", coming: "Coming" };
+const esc = (s) => s.replace(/[&<>]/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]));
+const pill = (s) => `<span class="pill ${s}">${STATE[s]}</span>`;
+
+const counts = { live: 0, built: 0, coming: 0 };
+JOBS.forEach((j) => counts[j.s]++);
+const measured = JOBS.filter((j) => j.c.kind === "m").length;
+document.getElementById("tally").innerHTML =
+  `<span><b>${JOBS.length} agent jobs</b></span>` +
+  `<span>${pill("live")} ${counts.live}</span>` +
+  `<span>${pill("built")} ${counts.built}</span>` +
+  `<span>${pill("coming")} ${counts.coming}</span>` +
+  `<span>${measured} measured findings on the demo dairies</span>`;
+
+document.getElementById("areas").innerHTML = AREAS.map(([k, label]) => `<a href="#${k}">${label}</a>`).join("");
+
+document.getElementById("main").innerHTML = AREAS.map(([k, label, sub]) => {
+  const jobs = JOBS.filter((j) => j.a === k);
+  return `<section class="area" id="${k}">
+    <div class="areahead"><h2>${label}</h2><small>${jobs.length} jobs · ${esc(sub)}</small></div>
+    ${jobs.map((j) => {
+      const c = j.c;
+      const tag = c.kind === "m"
+        ? `<span class="m">Measured</span><span class="where">${esc(c.where)}</span>`
+        : `<span class="e">Example</span><span class="where">illustration, not a measurement</span>`;
+      return `<article class="job">
+        <div>
+          <div class="jobtop"><span class="code">${j.id}</span><h3>${esc(j.name)}</h3>${pill(j.s)}</div>
+          <p class="watch">${esc(j.w)}</p>
+          <p class="here">${j.here}</p>
+        </div>
+        <div class="card ${c.kind === "e" ? "ex" : ""}">
+          <div class="tag">${tag}</div>
+          <h4>${esc(c.h)}</h4>
+          <ul>${c.li.map((x) => `<li>${esc(x)}</li>`).join("")}</ul>
+          <p class="do"><b>Check first:</b> ${esc(c.do)}</p>
+        </div>
+      </article>`;
+    }).join("")}
+  </section>`;
+}).join("");
+</script>
+</body>
+</html>
